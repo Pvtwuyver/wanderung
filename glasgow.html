@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glasgow · 11–13 december</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #15171c; color: #efe8dc; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #e0a458; text-decoration: none; }
+  a:hover { color: #f3c88c; }
+  img { display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+  .hero { position: relative; }
+  .hero img { width: 100%; height: auto; max-height: 100vh; object-fit: cover; object-position: center top; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18%; background: linear-gradient(180deg, rgba(21,23,28,0), #15171c); }
+
+  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #e0a458; }
+  .intro { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
+  .intro h1 { margin: 14px 0 20px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -.01em; text-wrap: balance; }
+  .intro p { margin: 0; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #cfc7bb; text-wrap: pretty; }
+  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; border: 1px solid #2e3139; border-radius: 6px; min-width: 240px; }
+  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; }
+  .when span { color: #b9b0a3; font-size: 16px; }
+  .when #countdown { color: #e0a458; font-weight: 500; margin-top: 6px; }
+  @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } }
+
+  .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 22px; }
+  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); }
+  .section-head p { margin: 0; color: #9d958a; font-size: 15px; }
+
+  .collage { display: grid; gap: 6px; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 120px;
+    grid-template-areas:
+      "a a a w w t"
+      "a a a w w t"
+      "a a a f f t"
+      "m m d d b b"
+      "m m d d b b"
+      "k k k e e e"; }
+  .collage figure { position: relative; margin: 0; overflow: hidden; background: #22252c; }
+  .collage img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); transition: transform .6s ease; }
+  .collage figure:hover img { transform: scale(1.06); }
+  .collage figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 11px; background: rgba(21,23,28,.82); color: #efe8dc; font-size: 14px; font-weight: 500; border-radius: 3px; }
+  .c-a { grid-area: a; } .c-w { grid-area: w; } .c-t { grid-area: t; } .c-f { grid-area: f; }
+  .c-m { grid-area: m; } .c-d { grid-area: d; } .c-b { grid-area: b; } .c-k { grid-area: k; } .c-e { grid-area: e; }
+  @media (max-width: 860px) {
+    .collage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px;
+      grid-template-areas: "a a" "a a" "w t" "w t" "f f" "m d" "m d" "b k" "e e"; }
+  }
+  @media (max-width: 480px) {
+    .collage { grid-template-columns: 1fr; grid-auto-rows: 230px; grid-template-areas: none; }
+    .collage figure { grid-area: auto !important; }
+  }
+
+  .practical { padding-top: 96px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+  .card { background: #1d2026; border: 1px solid #2e3139; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+  .card h3 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 28px; }
+  .card dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 12px 24px; font-size: 16px; }
+  .card dt { color: #9d958a; }
+  .card dd { margin: 0; color: #efe8dc; }
+  .card dd.tbd { color: #6f685f; font-style: italic; }
+
+  .rsvp-wrap { padding-top: 56px; padding-bottom: 88px; }
+  .rsvp { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; border-top: 1px solid #2e3139; padding-top: 40px; }
+  .rsvp h2 { margin: 0 0 6px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); }
+  .rsvp p { margin: 0; color: #c4bcb0; font-size: 17px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #e0a458; color: #15171c; font-weight: 600; font-size: 17px; }
+  .btn:hover { background: #f3c88c; color: #15171c; }
+
+  footer { padding-bottom: 40px; font-size: 12px; line-height: 1.6; color: #7d766c; }
+  footer a { color: #a39a8d; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="images/header.jpg" alt="De vriendengroep in de sneeuw, met de tekst WHISKY">
+</header>
+
+<section class="wrap intro">
+  <div>
+    <div class="eyebrow">Je bent uitgenodigd</div>
+    <h1>Een weekend Schotland in december.</h1>
+    <p>Na een geslaagde Wanderung is het tijd om het jaar af sluiten met een Schotse trip naar Glasgow.</p>
+  </div>
+  <div class="when">
+    <strong>11 – 13 december</strong>
+    <span>Vrijdag t/m zondag</span>
+    <span id="countdown"></span>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>A walk in the park</h2>
+    <p>Niks ligt vast</p>
+  </div>
+  <div class="collage">
+    <figure class="c-a"><img src="images/glasgow/park.jpg" alt="Herfst in Glasgow met Kelvingrove Park en de universiteit" loading="lazy"><figcaption>Kelvingrove Park</figcaption></figure>
+    <figure class="c-w"><img src="images/glasgow/distillery.jpg" alt="The Clydeside Distillery" loading="lazy"><figcaption>Whisky proeven</figcaption></figure>
+    <figure class="c-t"><img src="images/glasgow/street.jpg" alt="Buchanan Street" loading="lazy"><figcaption>Walking tour</figcaption></figure>
+    <figure class="c-f"><img src="images/fire.jpg" alt="Open haard" loading="lazy"><figcaption>Open haard</figcaption></figure>
+    <figure class="c-m"><img src="images/glasgow/museum.jpg" alt="Kelvingrove Art Gallery and Museum" loading="lazy"><figcaption>Musea</figcaption></figure>
+    <figure class="c-d"><img src="images/dinner.jpg" alt="Dineren" loading="lazy"><figcaption>Dineren</figcaption></figure>
+    <figure class="c-b"><img src="images/glasgow/pub.jpg" alt="The Laurieston bar in Glasgow" loading="lazy"><figcaption>Biertje in het café</figcaption></figure>
+    <figure class="c-k"><img src="images/bowl.jpg" alt="Bowlingkegels" loading="lazy"><figcaption>Kegelen</figcaption></figure>
+    <figure class="c-e"><img src="images/glasgow/river.jpg" alt="De Clyde met de skyline van Glasgow" loading="lazy"><figcaption>Glasgow</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap practical">
+  <div class="section-head">
+    <h2>Praktisch</h2>
+    <p>Wordt aangevuld zodra alles geboekt is</p>
+  </div>
+  <div class="cards">
+    <!-- HOTEL: vervang de tekst "Volgt nog" en haal class="tbd" weg -->
+    <div class="card">
+      <h3>Hotel</h3>
+      <dl>
+        <dt>Naam</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Adres</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Inchecken</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Uitchecken</dt><dd class="tbd">Volgt nog</dd>
+      </dl>
+    </div>
+    <!-- VLUCHTEN: vervang de tekst "Volgt nog" en haal class="tbd" weg -->
+    <div class="card">
+      <h3>Vluchten</h3>
+      <dl>
+        <dt>Heen</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Terug</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Vliegveld</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Bagage</dt><dd class="tbd">Volgt nog</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rsvp-wrap">
+  <div class="rsvp">
+    <div>
+      <h2>Ben je erbij?</h2>
+      <p>Vul het formulier even in, dan regelen we vluchten en slaapplekken.</p>
+    </div>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeLXvdvSTypKA24fhwBErA38oSPjxP6P9Rdr5AXqHuvhJsL2g/viewform" target="_blank" rel="noopener">Ik ga mee</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  Foto's via <a href="https://commons.wikimedia.org">Wikimedia Commons</a> (vrije licenties, auteurs op de bronpagina's):
+  <a href="https://commons.wikimedia.org/wiki/File:Autumn_in_Glasgow_(48929718197).jpg">Kelvingrove Park</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Kelvingrove_Art_Gallery_and_Museum_Central_Hall.jpg">museum</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:The_Clydeside_Distillery_-_geograph.org.uk_-_5858403.jpg">distilleerderij</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Buchanan_Street,_Glasgow_-_geograph.org.uk_-_6937756.jpg">Buchanan Street</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:The_Laurieston,_Glasgow_-_geograph.org.uk_-_8154432.jpg">The Laurieston</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:River_Clyde_pontoon_pier_with_dockyard_cranes_and_modern_Glasgow_skyline.jpg">Clyde</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Open_fire_in_hearth_grate_at_The_Black_Horse_Inn,_Nuthurst,_West_Sussex.jpg">open haard</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Dinner_at_a_bistro_(Unsplash).jpg">dineren</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Ten_pins_(6194788026).jpg">kegelen</a>.
+</footer>
+
+<script>
+  var days = Math.ceil((new Date(2026, 11, 11) - new Date()) / 86400000);
+  if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
+</script>
+</body>
+</html>
