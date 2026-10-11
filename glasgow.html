@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glasgow · 11–13 december</title>
+<title>Glasgow · 10–13 december</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -22,6 +22,7 @@
   .intro { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
   .intro h1 { margin: 14px 0 20px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -.01em; text-wrap: balance; }
   .intro p { margin: 0; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #cfc7bb; text-wrap: pretty; }
+  .intro p.sub { margin: -6px 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; color: #efe8dc; }
   .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; border: 1px solid #2e3139; border-radius: 6px; min-width: 240px; }
   .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; }
   .when span { color: #b9b0a3; font-size: 16px; }
@@ -71,6 +72,12 @@
   .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #e0a458; color: #15171c; font-weight: 600; font-size: 17px; }
   .btn:hover { background: #f3c88c; color: #15171c; }
 
+  .people-wrap { padding-bottom: 88px; }
+  .people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 28px 20px; }
+  .people li { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .people svg { width: 100%; max-width: 120px; aspect-ratio: 1; border-radius: 50%; background: #1d2026; border: 1px solid #2e3139; color: #3a3e47; }
+  .people span { font-size: 17px; font-weight: 500; color: #9d958a; }
+
   footer { padding-bottom: 40px; font-size: 12px; line-height: 1.6; color: #7d766c; }
   footer a { color: #a39a8d; }
 </style>
@@ -85,12 +92,12 @@
   <div>
     <div class="eyebrow">Je bent uitgenodigd</div>
     <h1>GLASGOW</h1>
-       <h1>Een weekend Schotland in december.</h1>
-    <p>Na een geslaagde Wanderung is het tijd om het jaar af sluiten met een Schotse trip naar Glasgow.</p>
+    <p class="sub">Een weekend Schotland in december.</p>
+    <p>Na een geslaagde Wanderung is het tijd om het jaar af te sluiten met een Schotse trip naar Glasgow.</p>
   </div>
   <div class="when">
-    <strong>11 – 13 december</strong>
-    <span>Vrijdag t/m zondag</span>
+    <strong>10 – 13 december</strong>
+    <span>Donderdag t/m zondag</span>
     <span id="countdown"></span>
   </div>
 </section>
@@ -123,7 +130,7 @@
     <div class="card">
       <h3>Hotel</h3>
       <dl>
-        <dt>Naam</dt><dd>Volgt nog</dd>
+        <dt>Naam</dt><dd class="tbd">Volgt nog</dd>
         <dt>Adres</dt><dd class="tbd">Volgt nog</dd>
         <dt>Inchecken</dt><dd class="tbd">Volgt nog</dd>
         <dt>Uitchecken</dt><dd class="tbd">Volgt nog</dd>
@@ -145,11 +152,18 @@
 <section class="wrap rsvp-wrap">
   <div class="rsvp">
     <div>
-      <h2>In de woorden van Snoop: "Drop it like a Scot!":</h2>
+      <h2>In de woorden van Snoop: "Drop it like a Scot!"</h2>
       <p>Vul het formulier even in en bevestig je komst, dan regelen we de rest.</p>
     </div>
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeLXvdvSTypKA24fhwBErA38oSPjxP6P9Rdr5AXqHuvhJsL2g/viewform" target="_blank" rel="noopener">Ik ga mee</a>
   </div>
+</section>
+
+<section class="wrap people-wrap">
+  <div class="section-head">
+    <h2>De Deelnemers:</h2>
+  </div>
+  <ul class="people" id="people"></ul>
 </section>
 
 <footer class="wrap">
@@ -157,7 +171,31 @@
 </footer>
 
 <script>
-  var days = Math.ceil((new Date(2026, 11, 11) - new Date()) / 86400000);
+  // Namen invullen: vervang '?' door de naam
+  var names = ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?'];
+  function scot(i) {
+    var t = 'tartan' + i;
+    return '<svg viewBox="0 0 100 100" aria-hidden="true">' +
+      '<defs><pattern id="' + t + '" width="8" height="8" patternUnits="userSpaceOnUse">' +
+        '<rect width="8" height="8" fill="#b5793a"/>' +
+        '<rect width="3" height="8" fill="#15171c" opacity=".45"/><rect width="8" height="3" fill="#15171c" opacity=".45"/>' +
+        '<rect x="5.5" width=".8" height="8" fill="#efe8dc" opacity=".6"/><rect y="5.5" width="8" height=".8" fill="#efe8dc" opacity=".6"/>' +
+      '</pattern></defs>' +
+      '<g fill="#5a5f6b">' +
+        '<circle cx="50" cy="21" r="9"/>' +
+        '<path d="M37 34Q50 29 63 34L61 58H39Z"/>' +
+        '<path d="M37 34L30 55L34 56.5L41 38Z"/><path d="M63 34L70 55L66 56.5L59 38Z"/>' +
+        '<rect x="40" y="74" width="6" height="14"/><rect x="54" y="74" width="6" height="14"/>' +
+      '</g>' +
+      '<rect x="39.5" y="80" width="7" height="7" fill="#efe8dc" opacity=".85"/><rect x="53.5" y="80" width="7" height="7" fill="#efe8dc" opacity=".85"/>' +
+      '<ellipse cx="42" cy="89" rx="5" ry="2.4" fill="#15171c"/><ellipse cx="58" cy="89" rx="5" ry="2.4" fill="#15171c"/>' +
+      '<path d="M38 56H62L66 75H34Z" fill="url(#' + t + ')"/>' +
+      '<rect x="46.5" y="58" width="7" height="8" rx="2" fill="#15171c"/><circle cx="50" cy="61" r="1.2" fill="#e0a458"/>' +
+    '</svg>';
+  }
+  document.getElementById('people').innerHTML = names.map(function (n, i) { return '<li>' + scot(i) + '<span>' + n + '</span></li>'; }).join('');
+
+  var days = Math.ceil((new Date(2026, 11, 10) - new Date()) / 86400000);
   if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
 </script>
 </body>
