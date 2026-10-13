@@ -3,83 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glasgow · 10–13 december</title>
+<title>Glasgow · 11–13 december</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-  body { margin: 0; background: #15171c; color: #efe8dc; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: #e0a458; text-decoration: none; }
-  a:hover { color: #f3c88c; }
+  body { margin: 0; background: #eef1f6; color: #1c2638; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #a4561a; text-decoration: none; }
+  a:hover { color: #7f3f10; }
   img { display: block; }
   .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
   .hero { position: relative; }
   .hero img { width: 100%; height: auto; max-height: 100vh; object-fit: cover; object-position: center top; }
-  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18%; background: linear-gradient(180deg, rgba(21,23,28,0), #15171c); }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18%; background: linear-gradient(180deg, rgba(238,241,246,0), #eef1f6); }
 
-  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #e0a458; }
+  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #a4561a; }
   .intro { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
-  .intro h1 { margin: 14px 0 20px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -.01em; text-wrap: balance; }
-  .intro p { margin: 0; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #cfc7bb; text-wrap: pretty; }
-  .intro p.sub { margin: -6px 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; color: #efe8dc; }
-  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; border: 1px solid #2e3139; border-radius: 6px; min-width: 240px; }
-  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; }
-  .when span { color: #b9b0a3; font-size: 16px; }
-  .when #countdown { color: #e0a458; font-weight: 500; margin-top: 6px; }
+  .intro h1 { margin: 14px 0 20px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -.01em; text-wrap: balance; color: #16203a; }
+  .intro p { margin: 0 0 14px; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #3e4a5e; text-wrap: pretty; }
+  .intro p.sub { margin: -6px 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; color: #16203a; }
+  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; background: #fff; border: 1px solid #d6dce6; border-radius: 6px; min-width: 240px; }
+  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; color: #16203a; }
+  .when span { color: #56627a; font-size: 16px; }
+  .when #countdown { color: #a4561a; font-weight: 600; margin-top: 6px; }
   @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } }
 
   .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 22px; }
-  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); }
-  .section-head p { margin: 0; color: #9d958a; font-size: 15px; }
+  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .section-head p { margin: 0; color: #56627a; font-size: 15px; }
 
-  .collage { display: grid; gap: 6px; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 120px;
+  .collage { display: grid; gap: 6px; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 130px;
     grid-template-areas:
-      "a a a w w t"
-      "a a a w w t"
-      "a a a f f t"
+      "e e e e w w"
+      "e e e e w w"
+      "e e e e f f"
       "m m d d b b"
-      "m m d d b b"
-      "k k k e e e"; }
-  .collage figure { position: relative; margin: 0; overflow: hidden; background: #22252c; }
-  .collage img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); transition: transform .6s ease; }
+      "m m d d b b"; }
+  .collage figure { position: relative; margin: 0; overflow: hidden; background: #d6dce6; border-radius: 3px; }
+  .collage img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
   .collage figure:hover img { transform: scale(1.06); }
-  .collage figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 11px; background: rgba(21,23,28,.82); color: #efe8dc; font-size: 14px; font-weight: 500; border-radius: 3px; }
-  .c-a { grid-area: a; } .c-w { grid-area: w; } .c-t { grid-area: t; } .c-f { grid-area: f; }
-  .c-m { grid-area: m; } .c-d { grid-area: d; } .c-b { grid-area: b; } .c-k { grid-area: k; } .c-e { grid-area: e; }
+  .collage figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 11px; background: rgba(255,255,255,.92); color: #1c2638; font-size: 14px; font-weight: 500; border-radius: 3px; }
+  .c-w { grid-area: w; } .c-f { grid-area: f; } .c-m { grid-area: m; } .c-d { grid-area: d; } .c-b { grid-area: b; } .c-e { grid-area: e; }
   @media (max-width: 860px) {
-    .collage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px;
-      grid-template-areas: "a a" "a a" "w t" "w t" "f f" "m d" "m d" "b k" "e e"; }
+    .collage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 120px;
+      grid-template-areas: "e e" "e e" "w f" "w m" "d m" "d b"; }
   }
   @media (max-width: 480px) {
-    .collage { grid-template-columns: 1fr; grid-auto-rows: 230px; grid-template-areas: none; }
-    .collage figure { grid-area: auto !important; }
+    .collage { gap: 4px; grid-auto-rows: 92px; }
+    .collage figcaption { left: 6px; bottom: 6px; padding: 4px 8px; font-size: 12px; }
   }
 
   .practical { padding-top: 96px; }
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
-  .card { background: #1d2026; border: 1px solid #2e3139; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-  .card h3 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 28px; }
+  .card { background: #fff; border: 1px solid #d6dce6; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+  .card h3 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 28px; color: #16203a; }
   .card dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 12px 24px; font-size: 16px; }
-  .card dt { color: #9d958a; }
-  .card dd { margin: 0; color: #efe8dc; }
-  .card dd.tbd { color: #6f685f; font-style: italic; }
+  .card dt { color: #56627a; }
+  .card dd { margin: 0; color: #1c2638; }
+  .card dd.tbd { color: #8a93a3; font-style: italic; }
 
   .rsvp-wrap { padding-top: 56px; padding-bottom: 88px; }
-  .rsvp { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; border-top: 1px solid #2e3139; padding-top: 40px; }
-  .rsvp h2 { margin: 0 0 6px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); }
-  .rsvp p { margin: 0; color: #c4bcb0; font-size: 17px; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #e0a458; color: #15171c; font-weight: 600; font-size: 17px; }
-  .btn:hover { background: #f3c88c; color: #15171c; }
+  .rsvp { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; border-top: 1px solid #d6dce6; padding-top: 40px; }
+  .rsvp h2 { margin: 0 0 6px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .rsvp p { margin: 0; color: #3e4a5e; font-size: 17px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #16203a; color: #fdf3c4; font-weight: 600; font-size: 17px; }
+  .btn:hover { background: #a4561a; color: #fff; }
 
   .people-wrap { padding-bottom: 88px; }
-  .people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 28px 20px; }
+  .people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 28px 20px; }
   .people li { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .people svg { width: 100%; max-width: 120px; aspect-ratio: 1; border-radius: 50%; background: #1d2026; border: 1px solid #2e3139; color: #3a3e47; }
-  .people span { font-size: 17px; font-weight: 500; color: #9d958a; }
+  .people svg { width: 100%; max-width: 120px; aspect-ratio: 1; border-radius: 50%; background: #fff; border: 1px solid #d6dce6; }
+  .people span { font-size: 17px; font-weight: 500; color: #3e4a5e; }
 
-  footer { padding-bottom: 40px; font-size: 12px; line-height: 1.6; color: #7d766c; }
-  footer a { color: #a39a8d; }
+  footer { padding-bottom: 40px; font-size: 12px; line-height: 1.6; color: #6b7588; }
+  footer a { color: #56627a; }
 </style>
 </head>
 <body>
@@ -94,12 +92,12 @@
     <h1>GLASGOW</h1>
     <p class="sub">Een weekend Schotland in december.</p>
     <p>Na een geslaagde Wanderung is het tijd om het jaar af te sluiten met een Schotse trip naar Glasgow.</p>
-       <p>Van vrijdag 11 t/m zondag 13 december duiken we het ruige en industriele Glasgow in voor een 'Wee bit' happen en dranken. We vullen de dagen uiteraard ook met sport en cultuur. Reageer even via de aanmeld-knop onderaan de pagina, dan gaat de organisatie aan de slag met de voorbereidingen</p>
-      <p>De organisatie heeft er al zin in.</p>
+    <p>Van vrijdag 11 t/m zondag 13 december duiken we het ruige en industriële Glasgow in voor een 'Wee bit' happen en dranken. We vullen de dagen uiteraard ook met sport en cultuur. Reageer even via de aanmeld-knop onderaan de pagina, dan gaat de organisatie aan de slag met de voorbereidingen.</p>
+    <p>De organisatie heeft er al zin in.</p>
   </div>
   <div class="when">
-    <strong>10 – 13 december</strong>
-    <span>Donderdag t/m zondag</span>
+    <strong>11 – 13 december</strong>
+    <span>Vrijdag t/m zondag</span>
     <span id="countdown"></span>
   </div>
 </section>
@@ -107,18 +105,15 @@
 <section class="wrap">
   <div class="section-head">
     <h2>"A walk in the park":</h2>
-    <p>Niks ligt nog vast! </p>
+    <p>Niks ligt nog vast!</p>
   </div>
   <div class="collage">
-   
+    <figure class="c-e"><img src="images/glasgow/river.jpg" alt="De Clyde met de skyline van Glasgow" loading="lazy"><figcaption>Glasgow</figcaption></figure>
     <figure class="c-w"><img src="images/glasgow/distillery.jpg" alt="The Clydeside Distillery" loading="lazy"><figcaption>Whisky proeven</figcaption></figure>
-
     <figure class="c-f"><img src="images/fire.jpg" alt="Open haard" loading="lazy"><figcaption>Open haard</figcaption></figure>
     <figure class="c-m"><img src="images/glasgow/museum.jpg" alt="Kelvingrove Art Gallery and Museum" loading="lazy"><figcaption>Musea</figcaption></figure>
     <figure class="c-d"><img src="images/dinner.jpg" alt="Dineren" loading="lazy"><figcaption>Dineren</figcaption></figure>
     <figure class="c-b"><img src="images/glasgow/pub.jpg" alt="The Laurieston bar in Glasgow" loading="lazy"><figcaption>Biertje in het café</figcaption></figure>
-
-    <figure class="c-e"><img src="images/glasgow/river.jpg" alt="De Clyde met de skyline van Glasgow" loading="lazy"><figcaption>Glasgow</figcaption></figure>
   </div>
 </section>
 
@@ -138,7 +133,6 @@
         <dt>Uitchecken</dt><dd class="tbd">Volgt nog</dd>
       </dl>
     </div>
-    <!-- VLUCHTEN: vervang de tekst "Volgt nog" en haal class="tbd" weg -->
     <div class="card">
       <h3>Vluchten</h3>
       <dl>
@@ -175,29 +169,43 @@
 <script>
   // Namen invullen: vervang '?' door de naam
   var names = ['Peter', 'Marijn', '?', '?', '?', '?', '?', '?', '?', '?', '?'];
+  // Tartan per deelnemer: [basis, donkere band, fijne streep]
+  var tartans = [
+    ['#b3282d', '#1d2a4a', '#f2d24b'],
+    ['#2f6b3f', '#13233d', '#d9413a'],
+    ['#25407a', '#2f6b3f', '#f4f1e6'],
+    ['#e2b83a', '#1c1c1c', '#b3282d'],
+    ['#6b2c5f', '#1d2a4a', '#e8c35a'],
+    ['#c9c6bd', '#1c1c1c', '#b3282d'],
+    ['#1f6f78', '#13233d', '#f4f1e6'],
+    ['#8a4b2a', '#2f6b3f', '#e2b83a'],
+    ['#d06a2c', '#1d2a4a', '#f4f1e6'],
+    ['#4a5c2c', '#7a2a24', '#e2b83a'],
+    ['#3a7dc2', '#1c1c1c', '#f4f1e6']
+  ];
   function scot(i) {
-    var t = 'tartan' + i;
+    var t = 'tartan' + i, c = tartans[i % tartans.length];
     return '<svg viewBox="0 0 100 100" aria-hidden="true">' +
       '<defs><pattern id="' + t + '" width="8" height="8" patternUnits="userSpaceOnUse">' +
-        '<rect width="8" height="8" fill="#b5793a"/>' +
-        '<rect width="3" height="8" fill="#15171c" opacity=".45"/><rect width="8" height="3" fill="#15171c" opacity=".45"/>' +
-        '<rect x="5.5" width=".8" height="8" fill="#efe8dc" opacity=".6"/><rect y="5.5" width="8" height=".8" fill="#efe8dc" opacity=".6"/>' +
+        '<rect width="8" height="8" fill="' + c[0] + '"/>' +
+        '<rect width="3" height="8" fill="' + c[1] + '" opacity=".55"/><rect width="8" height="3" fill="' + c[1] + '" opacity=".55"/>' +
+        '<rect x="5.5" width=".8" height="8" fill="' + c[2] + '" opacity=".8"/><rect y="5.5" width="8" height=".8" fill="' + c[2] + '" opacity=".8"/>' +
       '</pattern></defs>' +
-      '<g fill="#5a5f6b">' +
+      '<g fill="#2c3850">' +
         '<circle cx="50" cy="21" r="9"/>' +
         '<path d="M37 34Q50 29 63 34L61 58H39Z"/>' +
         '<path d="M37 34L30 55L34 56.5L41 38Z"/><path d="M63 34L70 55L66 56.5L59 38Z"/>' +
         '<rect x="40" y="74" width="6" height="14"/><rect x="54" y="74" width="6" height="14"/>' +
       '</g>' +
-      '<rect x="39.5" y="80" width="7" height="7" fill="#efe8dc" opacity=".85"/><rect x="53.5" y="80" width="7" height="7" fill="#efe8dc" opacity=".85"/>' +
-      '<ellipse cx="42" cy="89" rx="5" ry="2.4" fill="#15171c"/><ellipse cx="58" cy="89" rx="5" ry="2.4" fill="#15171c"/>' +
+      '<rect x="39.5" y="80" width="7" height="7" fill="#e3e7ee"/><rect x="53.5" y="80" width="7" height="7" fill="#e3e7ee"/>' +
+      '<ellipse cx="42" cy="89" rx="5" ry="2.4" fill="#16203a"/><ellipse cx="58" cy="89" rx="5" ry="2.4" fill="#16203a"/>' +
       '<path d="M38 56H62L66 75H34Z" fill="url(#' + t + ')"/>' +
-      '<rect x="46.5" y="58" width="7" height="8" rx="2" fill="#15171c"/><circle cx="50" cy="61" r="1.2" fill="#e0a458"/>' +
+      '<rect x="46.5" y="58" width="7" height="8" rx="2" fill="#16203a"/><circle cx="50" cy="61" r="1.2" fill="#e2b83a"/>' +
     '</svg>';
   }
   document.getElementById('people').innerHTML = names.map(function (n, i) { return '<li>' + scot(i) + '<span>' + n + '</span></li>'; }).join('');
 
-  var days = Math.ceil((new Date(2026, 11, 10) - new Date()) / 86400000);
+  var days = Math.ceil((new Date(2026, 11, 11) - new Date()) / 86400000);
   if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
 </script>
 </body>
