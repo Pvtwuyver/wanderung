@@ -1,5 +1,5 @@
 // Verhoog VERSIE na elke wijziging zodat telefoons de nieuwe versie ophalen
-const VERSIE = 'glasgow-v7';
+const VERSIE = 'glasgow-v9';
 const BESTANDEN = ['programma.html', 'manifest.webmanifest', 'images/glasgow/header.jpg', 'images/icons/icon-192.png', 'images/icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

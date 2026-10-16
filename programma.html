@@ -100,8 +100,9 @@
     <div class="eyebrow">Je bent uitgenodigd</div>
     <h1>GLASGOW</h1>
     <p class="sub">Een weekend Schotland in december.</p>
-    <p>Hier staat de complete planning online, dus zet deze pagina als app op je telefoon zodat je altijd weet waar de rest wel is.</p>
-
+    <p>Na een geslaagde Wanderung is het tijd om het jaar af te sluiten met een Schotse trip naar Glasgow.</p>
+    <p>Van vrijdag 11 t/m zondag 13 december duiken we het ruige en industriële Glasgow in voor een 'Wee bit' happen en dranken. We vullen de dagen uiteraard ook met sport en cultuur. Reageer even via de aanmeld-knop onderaan de pagina, dan gaat de organisatie aan de slag met de voorbereidingen.</p>
+    <p>De organisatie heeft er al zin in.</p>
   </div>
   <div class="when">
     <strong>11 – 13 december</strong>
@@ -129,18 +130,15 @@
     <div class="card">
       <h3>Hotel opties</h3>
       <dl>
-        <dt>Naam</dt><dd class="tbd">Volgt nog</dd>
-        <dt>Adres</dt><dd class="tbd">Volgt nog</dd>
-        <dt>prijs p/nacht</dt><dd>+/- € 140,-</dd>
+        <dt>Naam</dt><dd>Motel One Glasgow</dd>
+        <dt>Adres</dt><dd><a href="https://maps.google.com/?q=78-82+Oswald+St,+Glasgow+G1+4PL" target="_blank" rel="noopener">78-82 Oswald St, Glasgow G1 4PL, Verenigd Koninkrijk</a></dd>
       </dl>
     </div>
     <div class="card">
       <h3>Vluchten</h3>
       <dl>
-        <dt>Heen KLM</dt><dd>Vrijdag 14.15 AMS - 15.55 GLA</dd>
-        <dt>Terug KLM</dt><dd>Zondag 15.15 GLA - 17.40 AMS</dd>
-        <dt>Prijs</dt><dd>€ 102,49</dd>
-        <dt>Handbagage</dt><dd>€ 45,-</dd>
+        <dt>Heen KLM</dt><dd>Vrijdag 12.10 AMS – GLA</dd>
+        <dt>Terug KLM</dt><dd>Zondag 17.15 GLA – AMS</dd>
       </dl>
     </div>
   </div>
@@ -175,10 +173,10 @@
   // { tijd: '19.30', titel: 'Diner', plek: 'Restaurant X', foto: 'images/dinner.jpg', link: 'https://...' },
   var programma = [
     { id: 'vrijdag', dag: 'Vrijdag', datum: '11 december', items: [
-      { tijd: '14.15', titel: 'Vlucht AMS – GLA', plek: 'KLM · aankomst 15.55' },
+      { tijd: '12.10', titel: 'Vlucht AMS – GLA', plek: 'KLM' },
       { tijd: '17.00 – 18.30', titel: 'Borrel in de pub', plek: 'Locatie volgt nog', foto: 'images/glasgow/pub.jpg' },
       { tijd: '18.30', titel: 'Diner in The Buttery', plek: '652 Argyle Street, Finnieston', foto: 'images/dinner.jpg', link: 'https://twofatladiesrestaurant.com/buttery/',
-        info: 'LET OP: Dresscode is Smart Casual! Sinds 1870 open en vermoedelijk het oudste restaurant van Glasgow. Eikenhout, mahonie, glas-in-lood en tartan tapijt, en obers in kilt. Op het menu Schotse klassiekers zoals Highland hert en Schots rundvlees.' },
+        info: 'Sinds 1870 open en vermoedelijk het oudste restaurant van Glasgow. Eikenhout, mahonie, glas-in-lood en tartan tapijt, en obers in kilt. Op het menu Schotse klassiekers zoals Highland hert en Schots rundvlees.' },
       { tijd: 'Na het diner', titel: 'Avondprogramma', plek: 'Volgt nog' }
     ]},
     { id: 'zaterdag', dag: 'Zaterdag', datum: '12 december', items: [
@@ -192,7 +190,7 @@
     { id: 'zondag', dag: 'Zondag', datum: '13 december', items: [
       { tijd: 'Ochtend', titel: 'Ontbijt', plek: 'In hotel' },
       { tijd: 'Middag', titel: 'Lunch', plek: 'Natte lunch' },
-      { tijd: '15.15', titel: 'Vlucht GLA – AMS', plek: 'KLM · aankomst 17.40' }
+      { tijd: '17.15', titel: 'Vlucht GLA – AMS', plek: 'KLM' }
     ]}
   ];
   function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -213,7 +211,7 @@
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
 
   // Namen invullen: vervang '?' door de naam
-  var names = ['Peter', 'Marijn', '?', '?', '?', '?', '?', '?', '?', '?', '?'];
+  var names = ['Peter', 'Marijn', 'Frank', 'Jasper', 'Sander', 'Michiel', 'Martijn4', 'Demis', 'Martijn5', '?', '?'];
   // Tartan per deelnemer: [basis, donkere band, fijne streep]
   var tartans = [
     ['#b3282d', '#1d2a4a', '#f2d24b'],
