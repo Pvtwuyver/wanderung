@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glasgow · Programma</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16203a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Glasgow">
+<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="images/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #eef1f6; color: #1c2638; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #a4561a; text-decoration: none; }
+  a:hover { color: #7f3f10; }
+  img { display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left)); }
+
+  .hero { position: relative; }
+  .hero img { width: 100%; height: auto; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6%; background: linear-gradient(180deg, rgba(238,241,246,0), #eef1f6); }
+
+  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #a4561a; }
+  .intro { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
+  .intro h1 { margin: 14px 0 20px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -.01em; text-wrap: balance; color: #16203a; }
+  .intro p { margin: 0 0 14px; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #3e4a5e; text-wrap: pretty; }
+  .intro p.sub { margin: -6px 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; color: #16203a; }
+  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; background: #fff; border: 1px solid #d6dce6; border-radius: 6px; min-width: 240px; }
+  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; color: #16203a; }
+  .when span { color: #56627a; font-size: 16px; }
+  .when #countdown { color: #a4561a; font-weight: 600; margin-top: 6px; }
+  @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } }
+
+  .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 22px; }
+  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .section-head p { margin: 0; color: #56627a; font-size: 15px; }
+
+  .programma { scroll-margin-top: 16px; }
+  .daynav { position: sticky; top: 0; z-index: 5; display: flex; gap: 8px; padding: 12px 0; padding-top: max(12px, env(safe-area-inset-top)); margin-bottom: 12px; background: #eef1f6; }
+  .daynav a { flex: 1; max-width: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #fff; border: 1px solid #d6dce6; color: #16203a; font-weight: 600; font-size: 15px; line-height: 1.15; }
+  .daynav a small { font-weight: 400; font-size: 12px; color: #56627a; }
+  .daynav a:hover { border-color: #a4561a; color: #16203a; }
+  .dag { padding-top: 28px; scroll-margin-top: 84px; }
+  .dag h3 { margin: 0 0 16px; display: flex; align-items: baseline; gap: 12px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: #16203a; }
+  .dag h3 span { font-family: 'Work Sans', system-ui, sans-serif; font-size: 15px; color: #56627a; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 760px; }
+  .item { display: grid; grid-template-columns: 112px minmax(0, 1fr); background: #fff; border: 1px solid #d6dce6; border-radius: 6px; overflow: hidden; min-height: 112px; }
+  .item .foto { position: relative; display: block; background: #d6dce6; }
+  .item .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .item .foto:hover img { transform: scale(1.06); }
+  .item .foto i { position: absolute; right: 6px; bottom: 6px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.92); color: #16203a; font-style: normal; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .item .tekst { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+  .item .tijd { font-size: 13px; font-weight: 600; letter-spacing: .08em; color: #a4561a; }
+  .item .titel { font-size: 17px; font-weight: 600; color: #16203a; }
+  .item .plek { font-size: 14px; color: #56627a; }
+  .item .info { margin-top: 4px; font-size: 14px; line-height: 1.5; color: #3e4a5e; text-wrap: pretty; }
+  .item.geenfoto { grid-template-columns: 1fr; min-height: 0; }
+  .item.tbd { grid-template-columns: 1fr; min-height: 0; background: transparent; border-style: dashed; }
+  .item.tbd .titel { color: #8a93a3; font-weight: 400; font-style: italic; }
+  .practical { padding-top: 88px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+  .card { background: #fff; border: 1px solid #d6dce6; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+  .card h3 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 28px; color: #16203a; }
+  .card dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 12px 24px; font-size: 16px; }
+  .card dt { color: #56627a; }
+  .card dd { margin: 0; color: #1c2638; }
+  .card dd.tbd { color: #8a93a3; font-style: italic; }
+
+  .rsvp-wrap { padding-top: 56px; padding-bottom: 88px; }
+  .rsvp { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; border-top: 1px solid #d6dce6; padding-top: 40px; }
+  .rsvp h2 { margin: 0 0 6px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .rsvp p { margin: 0; color: #3e4a5e; font-size: 17px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #16203a; color: #fdf3c4; font-weight: 600; font-size: 17px; }
+  .btn:hover { background: #a4561a; color: #fff; }
+
+  .people-wrap { padding-bottom: 88px; }
+  .people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 28px 20px; }
+  .people li { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .people svg { width: 100%; max-width: 120px; aspect-ratio: 1; border-radius: 50%; background: #fff; border: 1px solid #d6dce6; }
+  .people span { font-size: 17px; font-weight: 500; color: #3e4a5e; }
+
+  footer { padding-bottom: max(40px, env(safe-area-inset-bottom)); font-size: 12px; line-height: 1.6; color: #6b7588; }
+  footer a { color: #56627a; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="images/glasgow/header.jpg" alt="De vriendengroep in kilts in het besneeuwde Glasgow, met de tekst GLASGOW">
+</header>
+
+<section class="wrap intro">
+  <div>
+    <div class="eyebrow">Je bent uitgenodigd</div>
+    <h1>GLASGOW</h1>
+    <p class="sub">Een weekend Schotland in december.</p>
+    <p>Na een geslaagde Wanderung is het tijd om het jaar af te sluiten met een Schotse trip naar Glasgow.</p>
+    <p>Van vrijdag 11 t/m zondag 13 december duiken we het ruige en industriële Glasgow in voor een 'Wee bit' happen en dranken. We vullen de dagen uiteraard ook met sport en cultuur. Reageer even via de aanmeld-knop onderaan de pagina, dan gaat de organisatie aan de slag met de voorbereidingen.</p>
+    <p>De organisatie heeft er al zin in.</p>
+  </div>
+  <div class="when">
+    <strong>11 – 13 december</strong>
+    <span>Vrijdag t/m zondag</span>
+    <span id="countdown"></span>
+  </div>
+</section>
+
+<section class="wrap programma" id="programma">
+  <div class="section-head">
+    <h2>Programma</h2>
+    <p>Tik op een foto voor meer info</p>
+  </div>
+  <nav class="daynav" id="daynav"></nav>
+  <div id="dagen"></div>
+</section>
+
+<section class="wrap practical">
+  <div class="section-head">
+    <h2>Praktisch</h2>
+    <p>Wordt aangevuld zodra alles geboekt is</p>
+  </div>
+  <div class="cards">
+    <!-- HOTEL: vervang de tekst "Volgt nog" en haal class="tbd" weg -->
+    <div class="card">
+      <h3>Hotel opties</h3>
+      <dl>
+        <dt>Naam</dt><dd class="tbd">Volgt nog</dd>
+        <dt>Adres</dt><dd class="tbd">Volgt nog</dd>
+        <dt>prijs p/nacht</dt><dd>+/- € 140,-</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h3>Vluchten</h3>
+      <dl>
+        <dt>Heen KLM</dt><dd>Vrijdag 14.15 AMS - 15.55 GLA</dd>
+        <dt>Terug KLM</dt><dd>Zondag 15.15 GLA - 17.40 AMS</dd>
+        <dt>Prijs</dt><dd>€ 102,49</dd>
+        <dt>Handbagage</dt><dd>€ 45,-</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rsvp-wrap">
+  <div class="rsvp">
+    <div>
+      <h2>In de woorden van Snoop: "Drop it like a Scot!"</h2>
+      <p>Vul het formulier even in en bevestig je komst, dan regelen we de rest.</p>
+    </div>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeLXvdvSTypKA24fhwBErA38oSPjxP6P9Rdr5AXqHuvhJsL2g/viewform" target="_blank" rel="noopener">Ik ga mee</a>
+  </div>
+</section>
+
+<section class="wrap people-wrap">
+  <div class="section-head">
+    <h2>De Deelnemers:</h2>
+  </div>
+  <ul class="people" id="people"></ul>
+</section>
+
+<footer class="wrap">
+  Dit zijn de kleine lettertjes
+</footer>
+
+<script>
+  // PROGRAMMA INVULLEN
+  // Per onderdeel: tijd, titel, plek, foto (pad naar afbeelding) en link (webpagina).
+  // Zonder foto wordt het een kaart zonder afbeelding. { titel: 'Volgt nog' } is een lege plek.
+  // Optioneel: info: 'korte beschrijving'. Voorbeeld:
+  // { tijd: '19.30', titel: 'Diner', plek: 'Restaurant X', foto: 'images/dinner.jpg', link: 'https://...' },
+  var programma = [
+    { id: 'vrijdag', dag: 'Vrijdag', datum: '11 december', items: [
+      { tijd: '14.15', titel: 'Vlucht AMS – GLA', plek: 'KLM · aankomst 15.55' },
+      { tijd: '17.00 – 18.30', titel: 'Borrel in de pub', plek: 'Locatie volgt nog', foto: 'images/glasgow/pub.jpg' },
+      { tijd: '18.30', titel: 'Diner in The Buttery', plek: '652 Argyle Street, Finnieston', foto: 'images/dinner.jpg', link: 'https://twofatladiesrestaurant.com/buttery/',
+        info: 'Sinds 1870 open en vermoedelijk het oudste restaurant van Glasgow. Eikenhout, mahonie, glas-in-lood en tartan tapijt, en obers in kilt. Op het menu Schotse klassiekers zoals Highland hert en Schots rundvlees.' },
+      { tijd: 'Na het diner', titel: 'Avondprogramma', plek: 'Volgt nog' }
+    ]},
+    { id: 'zaterdag', dag: 'Zaterdag', datum: '12 december', items: [
+      { tijd: 'Ochtend', titel: 'Ontbijt', plek: 'In hotel' },
+      { tijd: 'Ochtend', titel: 'Ochtendprogramma', plek: 'Volgt nog' },
+      { tijd: 'Middag', titel: 'Lunch', plek: 'Volgt nog' },
+      { tijd: 'Middag', titel: 'Middagprogramma', plek: 'Necropolis speurtocht' },
+      { tijd: 'Avond', titel: 'Diner', plek: 'Volgt nog' },
+      { tijd: 'Avond', titel: 'Avondprogramma', plek: 'smack my bitch up- avond' }
+    ]},
+    { id: 'zondag', dag: 'Zondag', datum: '13 december', items: [
+      { tijd: 'Ochtend', titel: 'Ontbijt', plek: 'In hotel' },
+      { tijd: 'Middag', titel: 'Lunch', plek: 'Natte lunch' },
+      { tijd: '15.15', titel: 'Vlucht GLA – AMS', plek: 'KLM · aankomst 17.40' }
+    ]}
+  ];
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function item(it) {
+    if (it.titel === 'Volgt nog' && !it.tijd) return '<li class="item tbd"><div class="tekst"><span class="titel">Volgt nog</span></div></li>';
+    var tekst = '<div class="tekst">' + (it.tijd ? '<span class="tijd">' + esc(it.tijd) + '</span>' : '') +
+      '<span class="titel">' + esc(it.titel) + '</span>' + (it.plek ? '<span class="plek">' + esc(it.plek) + '</span>' : '') + (it.info ? '<span class="info">' + esc(it.info) + '</span>' : '') + '</div>';
+    if (!it.foto) return '<li class="item geenfoto">' + tekst + '</li>';
+    var img = '<img src="' + esc(it.foto) + '" alt="' + esc(it.titel) + '" loading="lazy">';
+    var foto = it.link ? '<a class="foto" href="' + esc(it.link) + '" target="_blank" rel="noopener" aria-label="Website van ' + esc(it.plek || it.titel) + '">' + img + '<i>↗</i></a>' : '<div class="foto">' + img + '</div>';
+    return '<li class="item">' + foto + tekst + '</li>';
+  }
+  document.getElementById('daynav').innerHTML = programma.map(function (d) { return '<a href="#' + d.id + '">' + d.dag + '<small>' + d.datum + '</small></a>'; }).join('');
+  document.getElementById('dagen').innerHTML = programma.map(function (d) {
+    return '<div class="dag" id="' + d.id + '"><h3>' + d.dag + '<span>' + d.datum + '</span></h3><ul class="items">' + d.items.map(item).join('') + '</ul></div>';
+  }).join('');
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+
+  // Namen invullen: vervang '?' door de naam
+  var names = ['Peter', 'Marijn', '?', '?', '?', '?', '?', '?', '?', '?', '?'];
+  // Tartan per deelnemer: [basis, donkere band, fijne streep]
+  var tartans = [
+    ['#b3282d', '#1d2a4a', '#f2d24b'],
+    ['#2f6b3f', '#13233d', '#d9413a'],
+    ['#25407a', '#2f6b3f', '#f4f1e6'],
+    ['#e2b83a', '#1c1c1c', '#b3282d'],
+    ['#6b2c5f', '#1d2a4a', '#e8c35a'],
+    ['#c9c6bd', '#1c1c1c', '#b3282d'],
+    ['#1f6f78', '#13233d', '#f4f1e6'],
+    ['#8a4b2a', '#2f6b3f', '#e2b83a'],
+    ['#d06a2c', '#1d2a4a', '#f4f1e6'],
+    ['#4a5c2c', '#7a2a24', '#e2b83a'],
+    ['#3a7dc2', '#1c1c1c', '#f4f1e6']
+  ];
+  function scot(i) {
+    var t = 'tartan' + i, c = tartans[i % tartans.length];
+    return '<svg viewBox="0 0 100 100" aria-hidden="true">' +
+      '<defs><pattern id="' + t + '" width="8" height="8" patternUnits="userSpaceOnUse">' +
+        '<rect width="8" height="8" fill="' + c[0] + '"/>' +
+        '<rect width="3" height="8" fill="' + c[1] + '" opacity=".55"/><rect width="8" height="3" fill="' + c[1] + '" opacity=".55"/>' +
+        '<rect x="5.5" width=".8" height="8" fill="' + c[2] + '" opacity=".8"/><rect y="5.5" width="8" height=".8" fill="' + c[2] + '" opacity=".8"/>' +
+      '</pattern></defs>' +
+      '<g fill="#2c3850">' +
+        '<circle cx="50" cy="21" r="9"/>' +
+        '<path d="M37 34Q50 29 63 34L61 58H39Z"/>' +
+        '<path d="M37 34L30 55L34 56.5L41 38Z"/><path d="M63 34L70 55L66 56.5L59 38Z"/>' +
+        '<rect x="40" y="74" width="6" height="14"/><rect x="54" y="74" width="6" height="14"/>' +
+      '</g>' +
+      '<rect x="39.5" y="80" width="7" height="7" fill="#e3e7ee"/><rect x="53.5" y="80" width="7" height="7" fill="#e3e7ee"/>' +
+      '<ellipse cx="42" cy="89" rx="5" ry="2.4" fill="#16203a"/><ellipse cx="58" cy="89" rx="5" ry="2.4" fill="#16203a"/>' +
+      '<path d="M38 56H62L66 75H34Z" fill="url(#' + t + ')"/>' +
+      '<rect x="46.5" y="58" width="7" height="8" rx="2" fill="#16203a"/><circle cx="50" cy="61" r="1.2" fill="#e2b83a"/>' +
+    '</svg>';
+  }
+  document.getElementById('people').innerHTML = names.map(function (n, i) { return '<li>' + scot(i) + '<span>' + n + '</span></li>'; }).join('');
+
+  var days = Math.ceil((new Date(2026, 11, 11) - new Date()) / 86400000);
+  if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
+</script>
+</body>
+</html>
