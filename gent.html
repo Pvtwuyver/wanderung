@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gent · Programma</title>
+<meta name="theme-color" content="#16203a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gent">
+<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="images/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #eef1f6; color: #1c2638; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #a4561a; text-decoration: none; }
+  a:hover { color: #7f3f10; }
+  img { display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left)); }
+
+  .hero { position: relative; height: clamp(380px, 68vh, 680px); overflow: hidden; background: #16203a; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,32,58,.35) 0%, rgba(22,32,58,0) 30%, rgba(22,32,58,0) 50%, rgba(22,32,58,.85) 100%); }
+  .hero .titel { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding-bottom: clamp(28px, 5vw, 56px); }
+  .hero .eyebrow { color: #fdf3c4; }
+  .hero h1 { margin: 10px 0 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(88px, 17vw, 220px); line-height: .85; letter-spacing: .01em; color: #fff; }
+  .hero .credit { position: absolute; z-index: 1; right: 12px; top: 10px; font-size: 11px; color: rgba(255,255,255,.8); }
+
+  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #a4561a; }
+  .intro { padding-top: 48px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
+  .intro p { margin: 0 0 14px; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #3e4a5e; text-wrap: pretty; }
+  .intro p.sub { margin: 0 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; color: #16203a; text-wrap: balance; }
+  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; background: #fff; border: 1px solid #d6dce6; border-radius: 6px; min-width: 240px; }
+  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; color: #16203a; }
+  .when span { color: #56627a; font-size: 16px; }
+  .when #countdown { color: #a4561a; font-weight: 600; margin-top: 6px; }
+  @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } }
+
+  .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 22px; }
+  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .section-head p { margin: 0; color: #56627a; font-size: 15px; }
+
+  .programma { scroll-margin-top: 16px; padding-bottom: 88px; }
+  .daynav { position: sticky; top: 0; z-index: 5; display: flex; gap: 8px; padding: 12px 0; padding-top: max(12px, env(safe-area-inset-top)); margin-bottom: 12px; background: #eef1f6; }
+  .daynav a { flex: 1; max-width: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #fff; border: 1px solid #d6dce6; color: #16203a; font-weight: 600; font-size: 15px; line-height: 1.15; }
+  .daynav a small { font-weight: 400; font-size: 12px; color: #56627a; }
+  .daynav a:hover { border-color: #a4561a; color: #16203a; }
+  .dag { padding-top: 28px; scroll-margin-top: 84px; }
+  .dag h3 { margin: 0 0 16px; display: flex; align-items: baseline; gap: 12px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: #16203a; }
+  .dag h3 span { font-family: 'Work Sans', system-ui, sans-serif; font-size: 15px; color: #56627a; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 760px; }
+  .item { display: grid; grid-template-columns: 112px minmax(0, 1fr); background: #fff; border: 1px solid #d6dce6; border-radius: 6px; overflow: hidden; min-height: 112px; }
+  .item .foto { position: relative; display: block; background: #d6dce6; }
+  .item .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .item .foto:hover img { transform: scale(1.06); }
+  .item .foto i { position: absolute; right: 6px; bottom: 6px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.92); color: #16203a; font-style: normal; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .item .tekst { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+  .item .tijd { font-size: 13px; font-weight: 600; letter-spacing: .08em; color: #a4561a; }
+  .item .titel { font-size: 17px; font-weight: 600; color: #16203a; }
+  .item .plek { font-size: 14px; color: #56627a; }
+  .item a.plek { color: #a4561a; }
+  .item a.plek:hover { color: #7f3f10; }
+  .item .info { margin-top: 4px; font-size: 14px; line-height: 1.5; color: #3e4a5e; text-wrap: pretty; }
+  .item.geenfoto { grid-template-columns: 1fr; min-height: 0; }
+  .item.tbd .titel { color: #8a93a3; font-weight: 400; font-style: italic; }
+  .item.tbd { background: transparent; border-style: dashed; }
+
+  footer { padding-bottom: max(40px, env(safe-area-inset-bottom)); font-size: 12px; line-height: 1.6; color: #6b7588; }
+  footer a { color: #56627a; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gent_Graslei_zonsondergang.JPG?width=2400" alt="De Graslei in Gent bij zonsondergang">
+  <div class="wrap titel">
+    <div class="eyebrow">Citytrip · 6 – 8 november</div>
+    <h1>GENT</h1>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <div>
+    <p class="sub">Een weekend Gent met z'n tweeën.</p>
+    <p>Van vrijdag 6 t/m zondag 8 november gaan we naar Gent. Vrijdagavond rijden we erheen, zaterdag staat in het teken van museum, de binnenstad en een avond met bijlen en cocktails, en zondag rijden we na het ontbijt weer terug.</p>
+  </div>
+  <div class="when">
+    <strong>6 – 8 november</strong>
+    <span>Vrijdag t/m zondag</span>
+    <span id="countdown"></span>
+  </div>
+</section>
+
+<section class="wrap programma" id="programma">
+  <div class="section-head">
+    <h2>Programma</h2>
+    <p>Tik op een foto voor meer info, op een adres voor de route</p>
+  </div>
+  <nav class="daynav" id="daynav"></nav>
+  <div id="dagen"></div>
+</section>
+
+<footer class="wrap">
+  Foto's: Wikimedia Commons (Thomas Kindermans, LimoWreck, Demeester, Romaine), Visit Gent en de websites van de locaties.
+</footer>
+
+<script>
+  // PROGRAMMA INVULLEN
+  // Per onderdeel: tijd, titel, plek, adres (maakt een routelink), foto, link (webpagina), info.
+  // tbd: true maakt er een gestippelde 'nog onbekend'-kaart van.
+  var C = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
+  var programma = [
+    { id: 'vrijdag', dag: 'Vrijdag', datum: '6 november', items: [
+      { tijd: '17.00 (?)', titel: 'Vertrek uit Amstelveen', plek: 'Ongeveer 3 uur rijden' },
+      { tijd: 'Ca. 20.00', titel: 'Parkeren in Parking Reep', adres: 'Seminariestraat 9, 9000 Gent', info: 'Daarna ongeveer 10 minuten lopen naar het hotel.' },
+      { tijd: 'Inchecken', titel: 'Snooz Ap Holiday & Business Flats', adres: 'Onderstraat 35, 9000 Gent', link: 'http://www.snoozap.be/',
+        info: 'Appartementen met eigen keuken en een gedeeld dakterras, tussen het centrum en de Vrijdagmarkt.' },
+      { tijd: '21.15', titel: 'Diner bij Mémé Gusta', adres: 'Burgstraat 19, 9000 Gent', link: 'https://www.meme-gusta.be/',
+        foto: 'https://visit.gent.be/sites/default/files/styles/photo_large/public/img/poi/hero/m%C3%A9m%C3%A9%20gusta%204.jpg?itok=R4oVTXK1',
+        info: 'Klassieke Vlaamse keuken in een vintage interieur: stoofvlees, kroketten en vol-au-vent, plus goede cocktails.' }
+    ]},
+    { id: 'zaterdag', dag: 'Zaterdag', datum: '7 november', items: [
+      { tijd: 'Ochtend', titel: 'Ontbijt bij Kaffee Changé', adres: 'Onderstraat 55, 9000 Gent', link: 'https://www.kaffeechange.be/',
+        foto: 'https://static.wixstatic.com/media/2c321b_b1e1a94f0c5441c29635612f5ef39e55~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/2c321b_b1e1a94f0c5441c29635612f5ef39e55~mv2.jpg',
+        info: 'Koffiehuis een paar deuren verderop. Let op: de eigen website noemt alleen di, do en vr als openingsdagen, dus even checken.' },
+      { tijd: 'Heen', titel: 'Tram 2 vanaf Gent Gravensteen', plek: 'Halte Sint-Veerleplein · 18 minuten',
+        foto: C + 'Gent_centrum_137_Graslei.JPG?width=600', link: 'https://www.delijn.be/' },
+      { tijd: 'Late ochtend', titel: 'Museum Dr. Guislain', adres: 'Jozef Guislainstraat 43B, 9000 Gent', link: 'https://www.museumdrguislain.be/',
+        foto: C + 'Gent-Museum_Dr_Guislain_(11).jpg?width=600',
+        info: 'Museum over de geschiedenis van de psychiatrie, in het 19e-eeuwse gebouw van het eerste psychiatrische ziekenhuis van België.' },
+      { tijd: 'Middag', titel: 'Lunch in het museum?', plek: 'Nog te bevestigen', tbd: true },
+      { tijd: 'Terug', titel: 'Tram 2 terug naar Gent Gravensteen', plek: 'Halte Sint-Veerleplein · 18 minuten' },
+      { tijd: 'Middag', titel: 'Wandelen door het centrum', plek: 'Graslei, Korenlei, Gravensteen, Patershol',
+        foto: C + 'Gent_-_Graslei_Korenlei_1.jpg?width=600' },
+      { tijd: 'Namiddag', titel: 'Café: Trollekelder, Dulle Griet, Dreupelkot', plek: 'Of een ander bruin café', link: 'https://www.trollekelder.be/',
+        foto: 'https://visit.gent.be/sites/default/files/styles/photo_large/public/img/poi/hero/PuurGent-DT004870.jpg?itok=ZYckb-li',
+        info: 'Trollekelder (Walter De Buckplein 4) heeft meer dan 300 speciaalbieren. Dulle Griet (Vrijdagmarkt 50) schenkt de Max van \'t Huis, waarvoor je een schoen als borg afgeeft. \'t Dreupelkot (Groentenmarkt 12) heeft meer dan 200 jenevers.' },
+      { tijd: '19.00', titel: 'Diner', plek: 'Nog onbekend', tbd: true },
+      { tijd: 'Avond', titel: 'Axe throwing', plek: 'Bijvoorbeeld Gent Axe Throwing, Belfortstraat 5', link: 'https://www.gentaxethrowing.be/',
+        foto: 'https://cdn.prod.website-files.com/6a0d91c8be4f754b931be25d/6a3ce4f25ccaf225e663e9ee_gent-axe-throwing-neon.webp',
+        info: 'Bijlwerpen op geprojecteerde spelletjes in een retro-zaal. Alleen op reservering, open tot 22.00, vanaf €25 p.p. per uur.' },
+      { tijd: 'Avond', titel: 'Cocktailbar', plek: 'Nog onbekend', tbd: true }
+    ]},
+    { id: 'zondag', dag: 'Zondag', datum: '8 november', items: [
+      { tijd: '10.00', titel: 'Uitchecken', plek: 'Snooz Ap' },
+      { tijd: 'Ochtend', titel: 'Ontbijt', plek: 'Nog onbekend', tbd: true },
+      { tijd: 'Daarna', titel: 'Terugreis naar Amstelveen', plek: 'Ongeveer 3 uur rijden' }
+    ]}
+  ];
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function item(it) {
+    var plek = it.adres
+      ? '<a class="plek" href="https://maps.google.com/?q=' + encodeURIComponent(it.adres) + '" target="_blank" rel="noopener">' + esc(it.adres) + '</a>'
+      : (it.plek ? '<span class="plek">' + esc(it.plek) + '</span>' : '');
+    var tekst = '<div class="tekst">' + (it.tijd ? '<span class="tijd">' + esc(it.tijd) + '</span>' : '') +
+      '<span class="titel">' + esc(it.titel) + '</span>' + plek + (it.info ? '<span class="info">' + esc(it.info) + '</span>' : '') + '</div>';
+    var cls = 'item' + (it.tbd ? ' tbd' : '');
+    if (!it.foto) return '<li class="' + cls + ' geenfoto">' + tekst + '</li>';
+    var img = '<img src="' + esc(it.foto) + '" alt="' + esc(it.titel) + '" loading="lazy">';
+    var foto = it.link ? '<a class="foto" href="' + esc(it.link) + '" target="_blank" rel="noopener" aria-label="Website van ' + esc(it.titel) + '">' + img + '<i>↗</i></a>' : '<div class="foto">' + img + '</div>';
+    return '<li class="' + cls + '">' + foto + tekst + '</li>';
+  }
+  document.getElementById('daynav').innerHTML = programma.map(function (d) { return '<a href="#' + d.id + '">' + d.dag + '<small>' + d.datum + '</small></a>'; }).join('');
+  document.getElementById('dagen').innerHTML = programma.map(function (d) {
+    return '<div class="dag" id="' + d.id + '"><h3>' + d.dag + '<span>' + d.datum + '</span></h3><ul class="items">' + d.items.map(item).join('') + '</ul></div>';
+  }).join('');
+
+  var days = Math.ceil((new Date(2026, 10, 6) - new Date()) / 86400000);
+  if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
+</script>
+</body>
+</html>
