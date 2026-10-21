@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glasgow · Programma</title>
+<meta name="theme-color" content="#16203a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Glasgow">
+<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="images/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #eef1f6; color: #1c2638; font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #a4561a; text-decoration: none; }
+  a:hover { color: #7f3f10; }
+  img { display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left)); }
+
+  .hero { position: relative; height: clamp(380px, 68vh, 680px); overflow: hidden; background: #16203a; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,32,58,.35) 0%, rgba(22,32,58,0) 30%, rgba(22,32,58,0) 50%, rgba(22,32,58,.85) 100%); }
+  .hero .titel { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding-bottom: clamp(28px, 5vw, 56px); }
+  .hero .eyebrow { color: #fdf3c4; }
+  .hero h1 { margin: 10px 0 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(88px, 17vw, 220px); line-height: .85; letter-spacing: .01em; color: #fff; }
+  .hero .credit { position: absolute; z-index: 1; right: 12px; top: 10px; font-size: 11px; color: rgba(255,255,255,.8); }
+
+  .eyebrow { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #a4561a; }
+  .intro { padding-top: 48px; padding-bottom: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px 64px; align-items: end; }
+  .intro p { margin: 0 0 14px; max-width: 620px; font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: #3e4a5e; text-wrap: pretty; }
+  .intro p.sub { margin: 0 0 18px; font-family: 'Gloock', Georgia, serif; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; color: #16203a; text-wrap: balance; }
+  .when { display: flex; flex-direction: column; gap: 4px; padding: 22px 26px; background: #fff; border: 1px solid #d6dce6; border-radius: 6px; min-width: 240px; }
+  .when strong { font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; color: #16203a; }
+  .when span { color: #56627a; font-size: 16px; }
+  .when #countdown { color: #a4561a; font-weight: 600; margin-top: 6px; }
+  @media (max-width: 760px) { .intro { grid-template-columns: 1fr; } }
+
+  .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 22px; }
+  .section-head h2 { margin: 0; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); color: #16203a; }
+  .section-head p { margin: 0; color: #56627a; font-size: 15px; }
+
+  .programma { scroll-margin-top: 16px; padding-bottom: 88px; }
+  .daynav { position: sticky; top: 0; z-index: 5; display: flex; gap: 8px; padding: 12px 0; padding-top: max(12px, env(safe-area-inset-top)); margin-bottom: 12px; background: #eef1f6; }
+  .daynav a { flex: 1; max-width: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #fff; border: 1px solid #d6dce6; color: #16203a; font-weight: 600; font-size: 15px; line-height: 1.15; }
+  .daynav a small { font-weight: 400; font-size: 12px; color: #56627a; }
+  .daynav a:hover { border-color: #a4561a; color: #16203a; }
+  .dag { padding-top: 28px; scroll-margin-top: 84px; }
+  .dag h3 { margin: 0 0 16px; display: flex; align-items: baseline; gap: 12px; font-family: 'Gloock', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); color: #16203a; }
+  .dag h3 span { font-family: 'Work Sans', system-ui, sans-serif; font-size: 15px; color: #56627a; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 760px; }
+  .item { display: grid; grid-template-columns: 112px minmax(0, 1fr); background: #fff; border: 1px solid #d6dce6; border-radius: 6px; overflow: hidden; min-height: 112px; }
+  .item .foto { position: relative; display: block; background: #d6dce6; }
+  .item .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .item .foto:hover img { transform: scale(1.06); }
+  .item .foto i { position: absolute; right: 6px; bottom: 6px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.92); color: #16203a; font-style: normal; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .item .tekst { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+  .item .tijd { font-size: 13px; font-weight: 600; letter-spacing: .08em; color: #a4561a; }
+  .item .titel { font-size: 17px; font-weight: 600; color: #16203a; }
+  .item .plek { font-size: 14px; color: #56627a; }
+  .item a.plek { color: #a4561a; }
+  .item a.plek:hover { color: #7f3f10; }
+  .item .info { margin-top: 4px; font-size: 14px; line-height: 1.5; color: #3e4a5e; text-wrap: pretty; }
+  .item.geenfoto { grid-template-columns: 1fr; min-height: 0; }
+  .item.tbd .titel { color: #8a93a3; font-weight: 400; font-style: italic; }
+  .item.tbd { background: transparent; border-style: dashed; }
+
+  footer { padding-bottom: max(40px, env(safe-area-inset-bottom)); font-size: 12px; line-height: 1.6; color: #6b7588; }
+  footer a { color: #56627a; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glasgow_Skyline_at_night.jpg?width=2400" alt="De skyline van Glasgow bij nacht">
+  <div class="wrap titel">
+    <div class="eyebrow">Programma · 11 – 13 december</div>
+    <h1>GLASGOW</h1>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <div>
+    <p class="sub">Het weekend in Glasgow, dag voor dag.</p>
+    <p>Hieronder staat het programma van vrijdag 11 t/m zondag 13 december. Tijden en plannen kunnen nog veranderen.</p>
+  </div>
+  <div class="when">
+    <strong>11 – 13 december</strong>
+    <span>Vrijdag t/m zondag</span>
+    <span id="countdown"></span>
+  </div>
+</section>
+
+<section class="wrap programma" id="programma">
+  <div class="section-head">
+    <h2>Programma</h2>
+    <p>Tik op een foto voor meer info, op een adres voor de route</p>
+  </div>
+  <nav class="daynav" id="daynav"></nav>
+  <div id="dagen"></div>
+</section>
+
+<footer class="wrap">
+  Foto's: Wikimedia Commons, Geograph (Thomas Nugent, CC BY-SA 2.0), GlasgowWorld en de websites van de locaties. <a href="glasgow.html">Terug naar de uitnodiging</a>
+</footer>
+
+<script>
+  var C = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
+  var programma = [
+    { id: 'vrijdag', dag: 'Vrijdag', datum: '11 december', items: [
+      { tijd: '9.26', titel: 'Peter en Marijn in de bus 186 naar Schiphol', info: 'Rechtstreeks vanuit Amstelveen naar Schiphol Plaza.' },
+      { tijd: '10.00', titel: 'Verzamelen achter douane op Schiphol', plek: 'Voor mensen die samen vlucht van 12.10 uur hebben', info: 'KLM-vlucht AMS – GLA om 12.10. Door de tijdzone landen we om 12.45 lokale tijd.' },
+      { tijd: '12.45', titel: 'Aankomst Glasgow', plek: 'Tram naar centrum (15 min), koffer in hotel', info: 'Vanaf Glasgow Airport rijdt de Airport Express (bus 500) elke 10 minuten naar het centrum.' },
+      { tijd: 'Hotel', titel: 'Motel One Glasgow', adres: '78-82 Oswald St, Glasgow G1 4PL', link: 'https://www.motel-one.com/en/hotels/glasgow/', foto: 'images/glasgow/street.jpg', info: 'Naast Central Station, op loopafstand van alles in het centrum.' },
+      { tijd: '13.00', titel: 'Middagprogramma', plek: 'Wandelen door het centrum, lunch-on-the-go?', foto: C + 'Glasgow_Necropolis_with_Charles_Tennant_Monument.jpg?width=600', link: 'https://www.glasgownecropolis.org/', info: 'Via George Square en Buchanan Street naar de kathedraal en de Necropolis, de Victoriaanse begraafplaats op de heuvel met uitzicht over de stad.' },
+      { tijd: '17.00 – 18.00', titel: 'Borrel in Pub in het centrum', plek: 'Verzamelen late arrivals', foto: C + 'The_Viaduct_Tavern_bar_interior,_Newgate_St,_St_Paul%27s,_London_01.jpg?width=600', info: 'Pub nog te kiezen. Late arrivals schuiven hier aan.' },
+      { tijd: '', titel: '30 min walk' },
+      { tijd: '18.30', titel: 'Diner, Restaurant The Buttery', adres: '652 Argyle St, Glasgow G3 8UF', link: 'https://twofatladiesrestaurant.com/buttery', foto: 'https://s0.geograph.org.uk/geophotos/03/47/33/3473325_79228c85.jpg', info: 'Opgericht in 1870 en vermoedelijk het oudste restaurant van Glasgow. Victoriaans interieur met eikenhout, glas-in-lood en tartan; Schotse keuken met veel vis en wild.' },
+      { tijd: '21.00', titel: 'Cocktailbar/ bowlingbaan VEGA', plek: 'Walking tour?, Pub?, Club?', foto: C + 'Interior_of_Czeczotka_Cocktail_Bar,_Krak%C3%B3w,_2019.jpg?width=600', info: 'Cocktails en een baan bowlen, of verder de stad in.' },
+      { tijd: '22.00', titel: 'Smack my bitch up avond #1', info: 'Het nachtprogramma van vrijdag.' }
+    ]},
+    { id: 'zaterdag', dag: 'Zaterdag', datum: '12 december', items: [
+      { tijd: '10.00', titel: 'Ontbijt in hotel', plek: 'Daarna 35 min wandelen naar museum', info: 'De route loopt langs de Clyde of via Sauchiehall Street naar het West End.' },
+      { tijd: '11.00', titel: 'Museum Kelvingrove Art Gallery and Museum', adres: 'Argyle St, Glasgow G3 8AG', link: 'https://www.glasgowlife.org.uk/museums/venues/kelvingrove-art-gallery-and-museum', foto: 'images/glasgow/museum.jpg', info: 'Gratis toegankelijk. Rood zandstenen paleis uit 1901 met o.a. Dalí\'s Christus van Sint-Jan van het Kruis, Schotse kunst en een Spitfire aan het plafond. Om 13.00 speelt vaak het grote orgel.' },
+      { tijd: '13.00', titel: 'Lunch optie: The Brunch Club', plek: 'Is tegenover Museum', link: 'https://www.thebrunchclub.co/menu/', tbd: true, info: 'Brunchzaak aan Argyle Street, tegenover Kelvingrove.' },
+      { tijd: '14.00', titel: 'Whisky tasting', plek: '14 minuten lopen vanaf Museum!', info: 'Wandeling langs de rivier naar de distilleerderij.' },
+      { tijd: '14.15', titel: 'The Clydeside Distillery', adres: '100 Stobcross Rd, Glasgow G3 8QQ', link: 'https://www.theclydeside.com/', foto: 'images/glasgow/distillery.jpg', info: 'Distilleerderij in het oude pomphuis van Queen\'s Dock aan de Clyde. Rondleiding met proeverij van Schotse whisky\'s.' },
+      { tijd: '15.30 – ?', titel: 'Vrije middag', plek: 'Whiskey tasting/ Walking tour/ Glasgow Necropolis (taxi?)/ Game of Throwing Glasgow/ Dart-pub etc', foto: 'images/whisky.jpg', info: 'Vrij programma: nog een proeverij, de Necropolis per taxi, bijlwerpen of darten.' },
+      { tijd: '18.30', titel: 'Pub/ langs hotel/ redbull shotjes', foto: C + 'William_Blake_pub,_interior.jpg?width=600', info: 'Even opfrissen in het hotel en opladen voor de avond.' },
+      { tijd: '20.00', titel: 'Diner, Restaurant The Anchor Line', adres: '12-16 St Vincent Pl, Glasgow G1 2DH', link: 'https://www.theanchorline.co.uk/', foto: 'https://www.glasgowworld.com/jpim-static/image/2023/11/15/8/13/399975818_723222906507675_4502930374001238545_n.jpg.jpg?crop=3:2,smart&trim=&width=600&auto=webp&quality=75', info: 'Restaurant in de voormalige boekingskantoren van rederij Anchor Line, die passagiers van Glasgow naar New York bracht. Schotse vis en steaks, en een uitgebreide cocktailkaart.' },
+      { tijd: '22.00', titel: 'Smack my bitch up avond #2', info: 'Het nachtprogramma van zaterdag.' }
+    ]},
+    { id: 'zondag', dag: 'Zondag', datum: '13 december', items: [
+      { tijd: '10.00', titel: 'Ontbijt in hotel', info: 'Rustig aan na de zaterdagavond.' },
+      { tijd: '12.00', titel: 'Uitchecken', info: 'Bagage kan meestal bij de receptie blijven tot vertrek.' },
+      { tijd: '13.00', titel: 'Eventueel (natte) lunch voor langblijvers', foto: 'images/glasgow/pub.jpg', info: 'Voor wie een latere vlucht heeft.' },
+      { tijd: '14.30 – 16.30', titel: 'Vluchten terug', info: 'Reken op 20–30 minuten met de Airport Express naar het vliegveld.' }
+    ]}
+  ];
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function item(it) {
+    var plek = it.adres
+      ? '<a class="plek" href="https://maps.google.com/?q=' + encodeURIComponent(it.adres) + '" target="_blank" rel="noopener">' + esc(it.adres) + '</a>'
+      : (it.plek ? '<span class="plek">' + esc(it.plek) + '</span>' : '');
+    var tekst = '<div class="tekst">' + (it.tijd ? '<span class="tijd">' + esc(it.tijd) + '</span>' : '') +
+      '<span class="titel">' + esc(it.titel) + '</span>' + plek + (it.info ? '<span class="info">' + esc(it.info) + '</span>' : '') + '</div>';
+    var cls = 'item' + (it.tbd ? ' tbd' : '');
+    if (!it.foto) return '<li class="' + cls + ' geenfoto">' + tekst + '</li>';
+    var img = '<img src="' + esc(it.foto) + '" alt="' + esc(it.titel) + '" loading="lazy">';
+    var foto = it.link ? '<a class="foto" href="' + esc(it.link) + '" target="_blank" rel="noopener" aria-label="Website van ' + esc(it.titel) + '">' + img + '<i>↗</i></a>' : '<div class="foto">' + img + '</div>';
+    return '<li class="' + cls + '">' + foto + tekst + '</li>';
+  }
+  document.getElementById('daynav').innerHTML = programma.map(function (d) { return '<a href="#' + d.id + '">' + d.dag + '<small>' + d.datum + '</small></a>'; }).join('');
+  document.getElementById('dagen').innerHTML = programma.map(function (d) {
+    return '<div class="dag" id="' + d.id + '"><h3>' + d.dag + '<span>' + d.datum + '</span></h3><ul class="items">' + d.items.map(item).join('') + '</ul></div>';
+  }).join('');
+
+  var days = Math.ceil((new Date(2026, 11, 11) - new Date()) / 86400000);
+  if (days > 0) document.getElementById('countdown').textContent = 'Nog ' + days + ' dagen';
+</script>
+</body>
+</html>
